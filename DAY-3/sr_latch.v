@@ -46,7 +46,7 @@ module sr_fftb();
     $dumpvars(1,sr_fftb);
   end
   initial begin
-   $monitor("$Time=%0t|rst=%b|s=%b|r=%b|q=%b|q_bar=%b",$time,rst,s,r,q,q_bar);
+    $monitor("$Time=%0t|rst=%b|clk=%b|s=%b|r=%b|q=%b|q_bar=%b",$time,rst,clk,s,r,q,q_bar);
   end
 endmodule
     
