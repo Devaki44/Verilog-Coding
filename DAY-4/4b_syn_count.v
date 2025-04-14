@@ -1,5 +1,5 @@
 //Design code
-module 4b_syn_count(a,clk,rst,q,q_bar);
+module syn_count_4b(a,clk,rst,q,q_bar);
    input wire [3:0]a;
    input wire clk,rst;
    output reg [3:0]q;
