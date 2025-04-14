@@ -3,9 +3,9 @@ module johnson_count(rst,clk,q,q_bar);
   input wire rst,clk;
   output reg [3:0]q;
   output wire [3:0]q_bar;
-  always@(posedge clk or posedge rst)begin
+  always@(posedge clk)begin
     if(rst)
-      q<=4'b0001;
+      q<=4'b0000;
     else begin
       q[3]<=~q[0];
       q[2]<=q[3];
