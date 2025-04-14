@@ -1,45 +1,48 @@
 //Design code
-module t_ff(t,clk,rst,q,q_bar);
+module tff(t,clk,rst,q,q_bar);
   input wire t,clk,rst;
   output reg q;
   output wire q_bar;
-  always@(posedge clk)
-    begin
-      if(rst)
-        q<=1'b0;
-      else
+  always@(posedge clk or posedge rst)
+   begin
+    if(rst)
+      q<=1'b0;
+    else
+      begin
         case(t)
-        1'b0:q<=q;
-        1'b1:q<=~q;
-        default:q<=1'b0;
-       endcase
-    end
- assign q_bar=~q;
+          1'b0:q<=q;
+          1'b1:q<=~q;
+        endcase
+      end
+   end
+  assign q_bar=~q;
 endmodule
 
 //Testbench
-module t_fftb();
+module tff_tb;
   reg t,clk,rst;
-  wire q;
-  wire q_bar;
-  t_ff uut(.t(t),.clk(clk),.rst(rst),.q(q),.q_bar(q_bar));
+  wire q,q_bar;
+  tff uut(.t(t),
+          .clk(clk),
+          .rst(rst),
+          .q(q),
+          .q_bar(q_bar));
   initial begin
-    clk=0;
-    forever #5 clk=~clk;
+      clk=0;
+      forever #5 clk=~clk;
   end
   initial begin
-    t=0;rst=0;#5;
-    t=1;rst=0;#5;
-    t=0;rst=1;#5;
-    t=1;rst=1;#5;
-    $finish;
+      rst=1;t=0;#5;
+      rst=1;t=1;#5;
+      rst=0;t=0;#5;
+      rst=0;t=1;#5;
+      #1;$finish;
   end
   initial begin
-    $dumpfile("t_ff.vcd");
-    $dumpvars(1,t_fftb);
+      $dumpfile("tff_tb.vcd");
+      $dumpvars(0,tff_tb);
   end
   initial begin
-    $monitor("$Time=%0t|rst=%b|clk=%b|t=%b|q=%b|q_bar=%b",$time,rst,clk,t,q,q_bar);
+    $monitor("Time=%0d | rst=%b  | clk=%b | t=%b | q=%b | q_bar=%b",$time,t,rst,clk,q,q_bar);
   end
-endmodule
-    
+endmodule  
