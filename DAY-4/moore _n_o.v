@@ -77,14 +77,22 @@ module fsm_moore_tb();
     rst=1'b1;x=1'b1;#10;
     rst=1'b1;x=1'b1;#10;
     
+    rst=1'b0;x=1'b1;#10;
+    rst=1'b0;x=1'b1;#10;
+    rst=1'b0;x=1'b0;#10;
+    rst=1'b0;x=1'b1;#10; 
+    rst=1'b0;x=1'b1;#10;
+    rst=1'b0;x=1'b0;#10;
+    rst=1'b0;x=1'b1;#10;
+    rst=1'b0;x=1'b1;#10;
     rst=1'b0;x=1'b0;#10;
     rst=1'b0;x=1'b1;#10;
     rst=1'b0;x=1'b1;#10;
     rst=1'b0;x=1'b0;#10; 
     rst=1'b0;x=1'b1;#10;
     rst=1'b0;x=1'b1;#10;
+    rst=1'b0;x=1'b0;#10;
     rst=1'b0;x=1'b1;#10;
-    rst=1'b0;x=1'b1;#10;  
     #1;$finish;
   end
   initial begin
@@ -95,3 +103,5 @@ module fsm_moore_tb();
     $monitor("$Time=%0t|rst=%b|clk=%b|x=%b|y=%b",$time,rst,clk,x,y);
   end
 endmodule
+ 
+
