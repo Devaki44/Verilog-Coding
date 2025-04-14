@@ -32,8 +32,7 @@ module SIPO_tb();
     
     rst=1'b0;in=1'b0;#5;
     rst=1'b0;in=1'b1;#5;
-    
-    $finish;
+    #1;$finish;
   end
   initial begin
     $dumpfile("SIPO.vcd");
