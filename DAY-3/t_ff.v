@@ -3,7 +3,7 @@ module tff(t,clk,rst,q,q_bar);
   input wire t,clk,rst;
   output reg q;
   output wire q_bar;
-  always@(posedge clk or posedge rst)
+  always@(posedge clk )
    begin
     if(rst)
       q<=1'b0;
