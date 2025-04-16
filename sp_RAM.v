@@ -5,7 +5,7 @@ module sp_RAM(
   input [9:0]address,
   input [7:0]din,
   output reg [7:0]dout);
-  reg[7:0]ram[1023:0];
+  reg[7:0]ram[0:1023];
   always@(posedge clk)begin
     if(w_en)
       ram[address]<= din;
