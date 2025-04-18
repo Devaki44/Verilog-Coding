@@ -1,15 +1,22 @@
 //Design code
 module sum(
-  input[7:0]x,y,
-  output[7:0]out);
-  assign out=add_num(x,y);
-  function [7:0]add_num;
-   input [7:0]x,y;
+  input [7:0] x, y,
+  output reg [7:0] out
+);
+
+  always @(*) begin
+    out = add_num(x, y); 
+  end
+
+  function [7:0] add_num;
+    input [7:0] a, b;
     begin
-     add_num=x+y;
+      add_num = a + b; 
     end
   endfunction
+
 endmodule
+
 
 
 //Testbench
