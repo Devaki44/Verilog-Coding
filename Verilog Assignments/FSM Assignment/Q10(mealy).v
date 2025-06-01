@@ -22,14 +22,15 @@ together is multiple of 4 or not. Use Moore Machine for the design.
   always@(s or x)begin
     case(s)
       a:ns=(x==1)?b:a;
-      b:ns=(x==1)?c:a;
-      c:ns=(x==1)?d:a;
-      d:ns=(x==1)?a:a;
+      b:ns=(x==1)?c:b;
+      c:ns=(x==1)?d:c;
+      d:ns=(x==1)?a:d;
+      default:ns=a;
     endcase
   end
-  assign y=(s==d)&&(x==1);
+  assign y=(s==a)&&(x==1)||((s==a)&&(s==0));
 endmodule
-
+    
 
 //Testbench
 module mul_4_tb;
