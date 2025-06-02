@@ -28,13 +28,13 @@ module alt_01(clk,rst,x,y);
         if(x==0)
           ns<=c;
         else
-          ns<=b;
+          ns<=d;
         end
       c:begin
         if(x==0)
           ns<=a;
         else
-          ns<=d;
+          ns<=b;
         end
       d:begin
         if(x==0)
@@ -48,14 +48,14 @@ module alt_01(clk,rst,x,y);
   end
   always @(*) begin
     case (s)
-      a: y = 0;
       b: y = (x == 0) ? 1'b1 : 1'b0;
       c: y = (x == 1) ? 1'b1 : 1'b0;
-      d: y = 0;
       default: y = 1'b0;
     endcase
    end  
 endmodule
+
+
 
 //Testbench
 module alt_01_tb();
@@ -73,14 +73,20 @@ module alt_01_tb();
     @(posedge clk); x = 1;
     @(posedge clk); x = 0;
     @(posedge clk); x = 1;  
-    @(posedge clk); x = 0;
     @(posedge clk); x = 1;
-    @(posedge clk); x = 0;
+    @(posedge clk); x = 1;
+    @(posedge clk); x = 1;
     @(posedge clk); x = 1;  
     @(posedge clk); x = 0;
     @(posedge clk); x = 1;
-    @(posedge clk); x = 1;
+    @(posedge clk); x = 0;
     @(posedge clk); x = 0;  
+    @(posedge clk); x = 1;
+    @(posedge clk); x = 1;  
+    @(posedge clk); x = 0;
+    @(posedge clk); x = 1;
+    @(posedge clk); x = 0;
+    @(posedge clk); x = 0; 
 
     #1;$finish;
   end
