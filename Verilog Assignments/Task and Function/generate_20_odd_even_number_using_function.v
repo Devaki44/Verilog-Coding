@@ -1,12 +1,12 @@
 //Design code
 module odd_even_generator(
   input sel,
-  input [4:0]i,
+  input [7:0]i,
   output reg [7:0]value);
   
   function [7:0]gen_val(
     input s,
-    input [4:0]index);
+    input [7:0]index);
     if(sel==0)
     	gen_val=index*2;
     else
@@ -23,8 +23,8 @@ endmodule
 //Testbench
 module odd_even_generator_tb;
   reg sel;
-  reg [4:0]i;
-  wire [3:0]value;
+  reg [7:0]i;
+  wire [7:0]value;
   odd_even_generator dut(sel,i,value);
  
  
@@ -37,4 +37,5 @@ module odd_even_generator_tb;
     $monitor("$Time=%0t,sel=%b,i=%d,value=%d",$time,sel,i,value);
   end
 endmodule
+  
   
