@@ -13,3 +13,8 @@ module blocking;
   end
 
 endmodule
+
+
+//Testbench
+$time=0,a=0,b=1,c=0
+$time=5,a=1,b=0,c=0
