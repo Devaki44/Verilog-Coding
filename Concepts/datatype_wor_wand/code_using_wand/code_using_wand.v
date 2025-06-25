@@ -1,4 +1,4 @@
-//design code
+//DESIGN CODE
 module w_and(
   input a,
   input b,
