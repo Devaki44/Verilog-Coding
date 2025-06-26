@@ -1,4 +1,4 @@
-module blocking(
+module non-blocking(
   input clk,
   input rst,
   input [3:0]a,b,
