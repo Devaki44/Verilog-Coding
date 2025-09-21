@@ -22,7 +22,7 @@ module design_code;
 endmodule
 
 //OUTPUT FOR MONITOR
-$time=0,a=2,b=0,c=5
-$time=1,a=5,b=2,c=5
-$time=2,a=2,b=2,c=5
-$time=3,a=2,b=2,c=2
+# run -all
+# $time=0,a=2,b=0,c=5
+# $time=1,a=5,b=5,c=5
+# exit
