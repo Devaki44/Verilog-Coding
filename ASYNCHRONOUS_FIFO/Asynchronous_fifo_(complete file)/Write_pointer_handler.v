@@ -8,7 +8,7 @@ module wptr_handler #(parameter PTR_WIDTH = 3)(
   wire [PTR_WIDTH :0]g_wptr_next;
   wire wfull;
   
-  always@(posedge w_clk or w_rst)begin
+  always@(posedge w_clk )begin
     if(w_rst)begin
       b_wptr <= 0;
       g_wptr <= 0;
